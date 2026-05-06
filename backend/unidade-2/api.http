@@ -1,0 +1,49 @@
+# Utilizando httpyac para testes de API
+# Documentação: https://httpyac.github.io/
+
+@baseUrl = http://localhost:3000
+
+###
+# @name healthCheck
+GET {{baseUrl}}/health
+
+###
+
+# @name create
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+    "nome": "Ewerton Bezerra",
+    "email": "ewerton@exemplo.com",
+    "senha": "unyleya123"
+}
+
+###
+
+# @name listarUsuarios
+GET {{baseUrl}}/users
+
+###
+
+# @ref create
+# @name buscarUsuarioPorId
+GET {{baseUrl}}/users/{{create.id}}
+
+###
+
+# @ref create
+# @name atualizarUsuario
+PUT {{baseUrl}}/users/{{create.id}}
+Content-Type: application/json
+
+{
+    "nome": "Ewerton Editado",
+    "email": "ewerton.editado@exemplo.com"
+}
+
+###
+
+# @ref create
+# @name deletarUsuario
+DELETE {{baseUrl}}/users/{{create.id}}
