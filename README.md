@@ -3,12 +3,12 @@
 Este repositório centraliza todas as atividades, projetos e estudos realizados durante o curso de **Pós-Graduação MBA em Desenvolvimento Full Stack** da
 Faculdade Unyleya.
 
-## 🚀 Sobre o Curso
+## Sobre o Curso
 
 O curso abrange as principais tecnologias e metodologias do mercado atual, focando na formação de um desenvolvedor full-stack, abordando desde o front-end até o
 back-end e infraestrutura como AWS Cloud e AWS Devops.
 
-## 📁 Estrutura do Repositório
+## Estrutura do Repositório
 
 O repositório está organizado por disciplinas conforme o andamento do curso:
 
