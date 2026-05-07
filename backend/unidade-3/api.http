@@ -1,0 +1,71 @@
+# Utilizando httpyac para testes de API - Unidade 3
+# Documentação: https://httpyac.github.io/
+
+@baseUrl = http://localhost:3000
+
+###
+# @name healthCheck
+GET {{baseUrl}}/health
+
+###
+
+### 1. Registrar Novo Usuário
+# @name register
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+    "nome": "Ewerton Bezerra",
+    "email": "ewerton.unyleya@exemplo.com",
+    "senha": "senha_segura_123"
+}
+
+# Atualiza as variáveis após o registro
+@authToken = {{register.token}}
+@userId = {{register.user._id}}
+
+###
+
+### 2. Login (Gera o Token)
+# @name login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "ewerton.unyleya@exemplo.com",
+    "senha": "senha_segura_123"
+}
+
+# Atualiza as variáveis após o login (sobrescreve se necessário)
+@authToken = {{login.token}}
+@userId = {{login.user._id}}
+
+###
+
+### 3. Listar Usuários (Protegida)
+GET {{baseUrl}}/users
+Authorization: Bearer {{authToken}}
+
+###
+
+### 4. Buscar Usuário por ID (Protegida)
+GET {{baseUrl}}/users/{{userId}}
+Authorization: Bearer {{authToken}}
+
+###
+
+### 5. Atualizar Usuário (Protegida)
+PUT {{baseUrl}}/users/{{userId}}
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "nome": "Ewerton Bezerra (Atualizado)",
+    "email": "ewerton.unyleya@exemplo.com"
+}
+
+###
+
+### 6. Deletar Usuário (Protegida)
+DELETE {{baseUrl}}/users/{{userId}}
+Authorization: Bearer {{authToken}}
