@@ -1,0 +1,119 @@
+# Utilizando httpyac para testes da Pizzaria Unyleya - Unidade 4
+# Documentação: https://httpyac.github.io/
+
+@baseUrl = http://localhost:3000
+
+###
+# @name healthCheck
+GET {{baseUrl}}/health
+
+###
+
+### 0. Registrar Administrador
+# @name registerAdmin
+POST {{baseUrl}}/auth/register-admin
+Content-Type: application/json
+
+{
+    "nome": "Admin Pizzaria",
+    "email": "admin@pizzaria.com",
+    "senha": "admin_seguro"
+}
+
+# Variáveis do Administrador
+@adminToken = {{registerAdmin.token}}
+@adminId = {{registerAdmin.user._id}}
+
+###
+
+### 1. Registrar Novo Cliente
+# @name register
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+    "nome": "Cliente Pizza",
+    "email": "cliente@pizzaria.com",
+    "senha": "senha_segura"
+}
+
+# Variáveis do Cliente
+@clientToken = {{register.token}}
+@clientId = {{register.user._id}}
+
+###
+
+### 2. Login Cliente
+# @name login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "cliente@pizzaria.com",
+    "senha": "senha_segura"
+}
+
+# Atualiza sessão do Cliente
+@clientToken = {{login.token}}
+@clientId = {{login.user._id}}
+
+###
+
+### 3. Cadastrar Pizza (Admin)
+# @ref registerAdmin
+# @name createPizza
+POST {{baseUrl}}/pizzas
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+    "nome": "Calabresa Especial",
+    "descricao": "Molho de tomate, mussarela, calabresa fatiada e cebola.",
+    "preco": 45.90,
+    "tamanho": "Grande"
+}
+
+# Salva o ID da pizza criada
+@pizzaId = {{createPizza._id}}
+
+###
+
+### 4. Listar Todas as Pizzas (Público)
+GET {{baseUrl}}/pizzas
+
+###
+
+### 5. Realizar Pedido (Cliente)
+# @ref register
+# @ref createPizza
+# @name createOrder
+POST {{baseUrl}}/orders
+Authorization: Bearer {{clientToken}}
+Content-Type: application/json
+
+{
+    "itens": [
+        {
+            "pizza": "{{pizzaId}}",
+            "quantidade": 2
+        }
+    ]
+}
+
+# ID do pedido gerado
+@orderId = {{createOrder._id}}
+
+###
+
+### 6. Histórico de Pedidos do Cliente
+# @ref register
+GET {{baseUrl}}/orders/me
+Authorization: Bearer {{clientToken}}
+
+###
+
+### 7. Detalhes de um Pedido (Cliente)
+# @ref register
+# @ref createOrder
+GET {{baseUrl}}/orders/{{orderId}}
+Authorization: Bearer {{clientToken}}
