@@ -1,0 +1,188 @@
+/* Paleta de Cores: 
+   #d8e2dc (Fundo/Cinza Esverdeado Claro)
+   #ffffff (Branco)
+   #ffcad4 (Rosa Claro)
+   #f4acb7 (Rosa Escuro)
+   #9d8189 (Cinza/Roxo Escuro)
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d8e2dc;
+    color: #9d8189;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #f4acb7;
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #ffcad4;
+    color: #9d8189;
+    border-radius: 5px;
+}
+
+main {
+    padding: 20px;
+    flex: 1; /* Faz o main ocupar o espaço restante empurrando o footer para baixo */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #9d8189;
+}
+
+p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Grid de Produtos */
+.produtos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.produto-card {
+    background-color: #ffffff;
+    border: 1px solid #ffcad4;
+    border-radius: 8px;
+    width: 250px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.produto-card img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.produto-card h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #9d8189;
+    height: 40px;
+    overflow: hidden;
+}
+
+.produto-card p.preco {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f4acb7;
+    margin-bottom: 15px;
+    margin-top: auto; /* Empurra o preço e botão para o final do card */
+}
+
+.produto-card button {
+    background-color: #f4acb7;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.produto-card button:hover {
+    background-color: #9d8189;
+}
+
+/* Formulário de Contato */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffcad4;
+    border-radius: 5px;
+    color: #9d8189;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #f4acb7;
+    box-shadow: 0 0 3px #f4acb7;
+}
+
+form button {
+    background-color: #f4acb7;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #9d8189;
+}
+
+#form-mensagem {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #f4acb7;
+    text-align: center;
+}
+
+footer {
+    background-color: #9d8189;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+}
