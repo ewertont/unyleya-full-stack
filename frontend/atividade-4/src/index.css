@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #a53860;
+  --color-secondary: #da627d;
+  --color-accent: #ffa5ab;
+  --color-highlight: #f9dbbd;
+  --color-dark: #450920;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: theme('colors.highlight');
+  background-image: linear-gradient(135deg, #f9dbbd 0%, #ffa5ab 100%);
+  color: theme('colors.dark');
+  min-height: 100vh;
+}
