@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #65524d;
+  min-height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #817e9f;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.header-nav a {
+  color: #d7f171;
+  text-decoration: none;
+  margin-left: 15px;
+  font-weight: bold;
+}
+
+.header-nav a:hover {
+  color: #b5ef8a;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.footer {
+  background-color: #817e9f;
+  color: #d7f171;
+  text-align: center;
+  padding: 15px;
+}
+
+.filter-input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #7fc29b;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  outline: none;
+}
+
+.filter-input:focus {
+  border-color: #817e9f;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.table th, .table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #b5ef8a;
+}
+
+.table th {
+  background-color: #817e9f;
+  color: white;
+}
+
+.table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #7fc29b;
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: #817e9f;
+}
+
+.btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.page-info {
+  font-weight: bold;
+  color: #65524d;
+}
+
+.details-container {
+  background-color: white;
+  border: 2px solid #7fc29b;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.details-info p {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.not-found {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.not-found h1 {
+  font-size: 48px;
+  color: #65524d;
+}
