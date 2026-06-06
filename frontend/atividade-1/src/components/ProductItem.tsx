@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Product } from '../types';
+import type { Product } from '../types.ts';
 import Card from './Card.tsx';
 import './ProductItem.css';
 
@@ -17,7 +17,9 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
       <img src={product.image} alt={product.title} className="product-image" />
       <h3 className="product-title">{product.title}</h3>
       <p className="product-price">R$ {product.price.toFixed(2)}</p>
-      <button className="buy-button" onClick={handleBuy}>Comprar</button>
+      <button className="buy-button" onClick={handleBuy}>
+        Comprar
+      </button>
     </Card>
   );
 };

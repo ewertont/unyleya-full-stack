@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import type { Product } from '../types';
+import type { Product } from '../types.ts';
 import ProductItem from './ProductItem.tsx';
 import './ProductList.css';
 
